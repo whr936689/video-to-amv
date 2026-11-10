@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEF2F4"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="视频转 AMV"
+                android:textColor="#1F2933"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关于软件"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 源视频 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="源视频"
+                android:textColor="#52606D"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnPick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="选择视频文件" />
+
+            <TextView
+                android:id="@+id/tvVideoInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:text="未选择视频"
+                android:textColor="#7B8794"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 输出参数 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="输出参数"
+                android:textColor="#52606D"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="视频类型"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <RadioGroup
+                android:id="@+id/rgFormat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbAmv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="AMV" />
+
+                <RadioButton
+                    android:id="@+id/rbAvi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AVI" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频长宽"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="帧率"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spFps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="视频变换"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spTransform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="图像品质"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spQuality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="音频比特率"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spBitrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbVideoSync"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="视频同步"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/cbAudioSync"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="音频同步"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="AMV：22050Hz 单声道；AVI：MPEG-4 + PCM，兼容更多老设备。"
+                android:textColor="#7B8794"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- 高级选项 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高级选项"
+                android:textColor="#52606D"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/cbCut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="截取源视频片断"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:id="@+id/layoutCut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/etStart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="开始 00:00:00"
+                    android:inputType="datetime"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/etEnd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="结束 00:00:00"
+                    android:inputType="datetime"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPickAudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="用新的音频文件替换原音轨" />
+
+            <TextView
+                android:id="@+id/tvAudioName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未选择替换音频"
+                android:textColor="#7B8794"
+                android:textSize="11sp" />
+
+            <CheckBox
+                android:id="@+id/cbAutoPlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转换完自动播放"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- 输出目录 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="输出目录"
+                android:textColor="#52606D"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOutputDir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#3E4C59"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnPickOutput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="更改目录"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnResetOutput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="恢复默认"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConvert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#2196F3"
+            android:text="开始转换"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:max="100" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:textColor="#52606D"
+            android:textSize="12sp" />
+
+        <!-- 批量转换 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="批量转换"
+                android:textColor="#52606D"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBatchAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="添加视频"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnBatchRemove"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="移除选中"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnBatchClear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="清空列表"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lvBatch"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="6dp"
+                android:background="#F5F7FA"
+                android:divider="#E4E7EB"
+                android:dividerHeight="1px" />
+
+            <Button
+                android:id="@+id/btnBatchConvert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#43A047"
+                android:text="批量转换"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBatch"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/tvBatchStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:textColor="#52606D"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="转换日志"
+            android:textColor="#52606D"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="4dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:scrollbars="vertical"
+            android:textColor="#3E4C59"
+            android:textIsSelectable="true"
+            android:textSize="10sp"
+            android:typeface="monospace" />
+    </LinearLayout>
+</ScrollView>
