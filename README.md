@@ -12,7 +12,7 @@ AMV 输出完整支持 `amv` 视频编码 + `adpcm_ima_amv` 音频，可放进 1
 | --- | --- |
 | `AMV-android4.4.apk` | Android 4.4 原生版（armeabi-v7a，内置 FFmpeg） |
 | `AMV-arm64-release.apk` | Flutter Android 版（arm64） |
-| `AMV-Windows.zip` | Flutter Windows 版，解压后运行 `amv_windows.exe` |
+| `AMV-Windows.zip` | Flutter Windows 版，解压后运行 `amv_windows.exe`（已内置 FFmpeg） |
 
 ## 功能
 
@@ -67,15 +67,19 @@ AMV 输出完整支持 `amv` 视频编码 + `adpcm_ima_amv` 音频，可放进 1
 | `amv_windows` | Flutter Windows 版（调用外部 FFmpeg） |
 | `screenshots` | 运行截图 |
 
+> Windows 版把 FFmpeg 放在 `amv_windows/assets/ffmpeg/ffmpeg.exe`，构建时会自动复制到程序目录；该文件约 100 MB，未纳入 Git 仓库，可从 [gyan.dev](https://www.gyan.dev/ffmpeg/builds/) 下载后放入该目录。
+
 ## Windows 版与 FFmpeg
 
-Windows 版不自带 FFmpeg，程序会按以下顺序自动查找：
+Windows 版已内置 FFmpeg 9.0.2 静态版（含 `amv` muxer 与 `adpcm_ima_amv` 编码器，约 100 MB），解压即用，无需另外安装。
 
-1. 程序目录下的 `ffmpeg.exe`
+程序启动时按以下顺序查找 FFmpeg，方便你替换成别的版本：
+
+1. 程序目录下的 `ffmpeg.exe`（内置的就是这个）
 2. 系统 `PATH` 中的 `ffmpeg`
 3. 常见安装位置（如 FormatFactory 自带目录）
 
-如果都没有，点界面上的「选择 ffmpeg.exe」手动指定。**必须使用带 `amv` muxer 和 `adpcm_ima_amv` 编码器的完整版 FFmpeg**（gyan.dev 的 full build 即可），否则只能输出 AVI。程序启动时会显示 FFmpeg 版本并检测 AMV 支持情况。
+也可以点界面上的「更换」手动指定其他 `ffmpeg.exe`。**必须使用带 `amv` muxer 和 `adpcm_ima_amv` 编码器的完整版 FFmpeg**（gyan.dev 的 essentials / full build 均可），否则只能输出 AVI。程序启动时会显示 FFmpeg 版本并检测 AMV 支持情况。
 
 ## 构建
 

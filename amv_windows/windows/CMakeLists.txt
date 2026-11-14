@@ -106,3 +106,10 @@ install(DIRECTORY "${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}"
 install(FILES "${AOT_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   CONFIGURATIONS Profile;Release
   COMPONENT Runtime)
+
+# 内置 FFmpeg（可选）：assets/ffmpeg/ffmpeg.exe 存在时随程序一起复制到 exe 同目录。
+set(BUNDLED_FFMPEG "${CMAKE_CURRENT_SOURCE_DIR}/../assets/ffmpeg/ffmpeg.exe")
+if(EXISTS "${BUNDLED_FFMPEG}")
+  install(FILES "${BUNDLED_FFMPEG}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+    COMPONENT Runtime)
+endif()

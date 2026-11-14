@@ -31,6 +31,9 @@ Thumbs.db
 # ---------- 测试素材 ----------
 test1/
 
+# ---------- 内置 FFmpeg 二进制（约 100 MB，通过 Release 分发） ----------
+amv_windows/assets/ffmpeg/*.exe
+
 # 超过 GitHub 100MB 限制的成品包（改由 Release 分发）
 *-arm64-release.apk
 
